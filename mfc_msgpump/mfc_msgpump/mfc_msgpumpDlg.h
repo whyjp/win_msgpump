@@ -34,4 +34,6 @@ private:
 	bool m_bQuit = false;
 public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+private:
+	bool PeekAndPump();
 };

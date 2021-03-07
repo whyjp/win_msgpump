@@ -84,6 +84,9 @@ void CmfcmsgpumpDlg::OnPaint()
 			y = rand() % 640;
 			r = rand() % 640;
 			pDC.Ellipse(x, y, x + r, y + r);
+			if (PeekAndPump() == false) {
+				break;
+			}
 		}
 		CDialogEx::OnPaint();
 	}
@@ -101,6 +104,21 @@ HCURSOR CmfcmsgpumpDlg::OnQueryDragIcon()
 void CmfcmsgpumpDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
-	m_bQuit = false;
+	m_bQuit = true;
 	CDialogEx::OnLButtonDown(nFlags, point);
+}
+
+
+bool CmfcmsgpumpDlg::PeekAndPump()
+{
+	MSG msg;
+	while (::PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE)) {
+		if (!AfxGetApp()->PumpMessage()) {
+			::PostQuitMessage(0);
+			return false;
+		}
+	}
+	LONG idle = 0;
+	while (AfxGetApp()->OnIdle(idle++));
+	return true;
 }
