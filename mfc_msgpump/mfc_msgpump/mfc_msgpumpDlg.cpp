@@ -80,9 +80,9 @@ void CmfcmsgpumpDlg::OnPaint()
 		while (m_bQuit == false) {
 			int x, y, r;
 
-			x = rand() % 640;
-			y = rand() % 640;
-			r = rand() % 640;
+			x = rand() % 300;
+			y = rand() % 300;
+			r = rand() % 300;
 			pDC.Ellipse(x, y, x + r, y + r);
 			if (PeekAndPump() == false) {
 				break;
@@ -104,14 +104,18 @@ HCURSOR CmfcmsgpumpDlg::OnQueryDragIcon()
 void CmfcmsgpumpDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
 	// TODO: 여기에 메시지 처리기 코드를 추가 및/또는 기본값을 호출합니다.
-	m_bQuit = true;
+	m_bQuit = !m_bQuit;
+	if (m_bQuit) {
+		PostMessage(WM_PAINT, 0, 0);
+	}
 	CDialogEx::OnLButtonDown(nFlags, point);
 }
 
 
 bool CmfcmsgpumpDlg::PeekAndPump()
 {
-	MSG msg;
+	//pumpmessage 함수 이용
+	/*MSG msg;
 	while (::PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE)) {
 		if (!AfxGetApp()->PumpMessage()) {
 			::PostQuitMessage(0);
@@ -119,6 +123,16 @@ bool CmfcmsgpumpDlg::PeekAndPump()
 		}
 	}
 	LONG idle = 0;
-	while (AfxGetApp()->OnIdle(idle++));
+	while (AfxGetApp()->OnIdle(idle++))*/;
+
+	MSG msg;
+	if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+		if (msg.message == WM_QUIT) {
+			PostQuitMessage(0);
+		}
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+
 	return true;
 }
