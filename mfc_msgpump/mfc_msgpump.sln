@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mfc_msgpump", "mfc_msgpump\mfc_msgpump.vcxproj", "{DC29CFA9-6390-4437-9A81-D23828C751F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Debug|x64.ActiveCfg = Debug|x64
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Debug|x64.Build.0 = Debug|x64
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Debug|x86.ActiveCfg = Debug|Win32
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Debug|x86.Build.0 = Debug|Win32
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Release|x64.ActiveCfg = Release|x64
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Release|x64.Build.0 = Release|x64
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Release|x86.ActiveCfg = Release|Win32
+		{DC29CFA9-6390-4437-9A81-D23828C751F7}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08338A2E-B462-45EC-997F-BAFBAAE8045D}
+	EndGlobalSection
+EndGlobal
